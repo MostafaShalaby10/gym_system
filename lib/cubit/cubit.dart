@@ -540,33 +540,7 @@ class cubit extends Cubit<States> {
     });
   }
 
-  void createFemaleVideos({required String name, required String link}) {
-    videoModel = VideoModel(link: link, name: name);
-    emit(LoadingCreateFemaleVideos());
-    FirebaseFirestore.instance
-        .collection("Female Videos")
-        .doc(name)
-        .set(videoModel!.tomap())
-        .then((value) {
-      emit(SuccessfullyCreateFemaleVideos());
-    }).catchError((error) {
-      emit(ErrorCreateFemaleVideos(error.toString()));
-    });
-  }
 
-  void getFemaleVideos() {
-    videosLinks = [];
-    emit(LoadingGetFemaleVideos());
-    FirebaseFirestore.instance.collection("Female Videos").get().then((value) {
-      for (var element in value.docs) {
-        videosLinks.add(VideoModel.fromjson(element.data()));
-      }
-      // print(videosLinks.length);
-      emit(SuccessfullyGetFemaleVideos());
-    }).catchError((error) {
-      emit(ErrorGetFemaleVideos(error.toString()));
-    });
-  }
 FoodReplacementModel? foodReplacementModel ;
   void createFoodReplacement({required String food1, required String food2}) {
     foodReplacementModel = FoodReplacementModel(food1: food1, food2: food2);

@@ -222,25 +222,7 @@ class ErrorGetVideoLink extends States {
   ErrorGetVideoLink(this.error);
 }
 
-class LoadingCreateFemaleVideos extends States {}
 
-class SuccessfullyCreateFemaleVideos extends States {}
-
-class ErrorCreateFemaleVideos extends States {
-  final String error;
-
-  ErrorCreateFemaleVideos(this.error);
-}
-
-class LoadingGetFemaleVideos extends States {}
-
-class SuccessfullyGetFemaleVideos extends States {}
-
-class ErrorGetFemaleVideos extends States {
-  final String error;
-
-  ErrorGetFemaleVideos(this.error);
-}
 
 class LoadingCreateFoodReplacement extends States {}
 

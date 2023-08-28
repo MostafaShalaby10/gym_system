@@ -206,9 +206,6 @@ class HomePage extends StatelessWidget {
                                               cubit.get(context).getExercise(
                                                   id: SharedPrefs.getData(
                                                       key: "uid"));
-                                              cubit.get(context).getUserData(
-                                                  id: SharedPrefs.getData(
-                                                      key: "uid"));
                                               Navigator.push(
                                                   context,
                                                   MaterialPageRoute(

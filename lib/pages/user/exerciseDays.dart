@@ -8,7 +8,6 @@ import 'package:gym_system/pages/user/Exercise.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../components/components.dart';
-import 'femalevideos.dart';
 
 class ExerciseDays extends StatelessWidget {
   const ExerciseDays({Key? key}) : super(key: key);
@@ -90,42 +89,6 @@ class ExerciseDays extends StatelessWidget {
                                   ))),
                         ),
 
-                          ConditionalBuilder(
-                              condition: state is! LoadingGetUserDataState,
-                              builder: (context) 
-                              { 
-                                if (cubit.get(context).userData["map"]["Gender"] ==
-                                  "Female") {
-                                  return Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: button(
-                                    context: context,
-                                    text: "Exercise\nVideos",
-                                    color: Colors.transparent,
-                                    minWidth:
-                                    MediaQuery
-                                        .of(context)
-                                        .size
-                                        .width / 3.5,
-                                    height:
-                                    MediaQuery
-                                        .of(context)
-                                        .size
-                                        .height / 7,
-                                    function: () {
-                                      cubit.get(context).getFemaleVideos();
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                              const FemaleVideos()));
-                                    }),
-                                  );
-                                }else {
-                                  return const SizedBox();
-                                }} , 
-                              fallback: (context) => const Center(
-                                  child: CircularProgressIndicator(color: Colors.white,)))
                       ],
                     ),
                   ],

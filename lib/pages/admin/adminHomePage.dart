@@ -11,7 +11,6 @@ import 'package:gym_system/pages/admin/allUsers.dart';
 import 'package:gym_system/pages/authentication/login.dart';
 
 import '../../sharedPrefrences/sharedPrefrences.dart';
-import 'addfemalevideos.dart';
 
 class AdminHomePage extends StatelessWidget {
   const AdminHomePage({Key? key}) : super(key: key);
@@ -128,25 +127,33 @@ class AdminHomePage extends StatelessWidget {
                                       }),
                                 ),
                                 const SizedBox(width: 10,),
-                                Container(
-                                  color: backgroundColor,
-                                  child: button(
-                                      context: context,
-                                      text: "Add Female\nVideos",
-                                      color: Colors.transparent,
-                                      minWidth:
-                                      MediaQuery.of(context).size.width / 3.5,
-                                      height:
-                                      MediaQuery.of(context).size.height / 6,
-                                      function: () {
-                                        cubit.get(context).getAllUsers();
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    AddFemaleVideos()));
-                                      }),
-                                )
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+
+                                  children: [
+                                    Container(
+                                      color: backgroundColor,
+                                      child: button(
+                                          context: context,
+                                          text: "Food\nReplacement",
+                                          color: Colors.transparent,
+                                          minWidth:
+                                          MediaQuery.of(context).size.width / 3.5,
+                                          height:
+                                          MediaQuery.of(context).size.height / 6,
+                                          function: () {
+                                            cubit.get(context).getAllUsers();
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        AddFoodReplacement()));
+                                          }),
+                                    ),
+                                    const SizedBox(width: 10,),
+
+                                  ],
+                                ) ,
 
                               ],
                             ) ,
@@ -154,33 +161,6 @@ class AdminHomePage extends StatelessWidget {
                               height: 15,
                             ),
 
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-
-                              children: [
-                                Container(
-                                  color: backgroundColor,
-                                  child: button(
-                                      context: context,
-                                      text: "Food\nReplacement",
-                                      color: Colors.transparent,
-                                      minWidth:
-                                      MediaQuery.of(context).size.width / 3.5,
-                                      height:
-                                      MediaQuery.of(context).size.height / 6,
-                                      function: () {
-                                        cubit.get(context).getAllUsers();
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    AddFoodReplacement()));
-                                      }),
-                                ),
-                                const SizedBox(width: 10,),
-
-                              ],
-                            ) ,
 
                           ],
                         )),
