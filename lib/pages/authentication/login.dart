@@ -167,8 +167,20 @@ class _LoginState extends State<Login> {
               msg: "Welcome Coach", backgroundColor: Colors.green);
         }
       } else if (state is ErrorLoginState) {
-        Fluttertoast.showToast(
-            msg: state.error.toString(), backgroundColor: Colors.red);
+if(state.error.toString().contains("here is no user record corresponding to this identifier"))
+  {
+    Fluttertoast.showToast(
+        msg: "Incorrect email", backgroundColor: Colors.red);
+  }
+ else if(state.error.toString().contains("The password is invalid or the user does not have a password"))
+   {
+     Fluttertoast.showToast(
+         msg: "Incorrect password", backgroundColor: Colors.red);
+   } else if(state.error.toString().contains("The email address is badly formatted"))
+   {
+     Fluttertoast.showToast(
+         msg: "Not valid email", backgroundColor: Colors.red);
+   }
       }
     });
   }

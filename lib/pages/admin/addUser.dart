@@ -43,8 +43,7 @@ class _AddUserState extends State<AddUser> {
             child: Stack(
               alignment: Alignment.center,
               children: [
-                backgroundImage(context, image: "lib/assets/images/gemy7.jpg") ,
-
+                backgroundImage(context, image: "lib/assets/images/gemy7.jpg"),
                 SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(15.0),
@@ -66,7 +65,7 @@ class _AddUserState extends State<AddUser> {
                             height: 20,
                           ),
                           Container(
-                            color:backgroundColor ,
+                            color: backgroundColor,
                             child: textField(
                               context,
                               text: "E-mail",
@@ -132,35 +131,41 @@ class _AddUserState extends State<AddUser> {
                           ConditionalBuilder(
                               condition: state is! LoadingSignUpState,
                               builder: (context) => Container(
-                                color: backgroundColor,
-                                child: button(
-                                    context: context,
-                                    text: "Create account",
-                                    color: Colors.transparent,
-                                    minWidth:
-                                        MediaQuery.of(context).size.width / 2,
-                                    height:
-                                        MediaQuery.of(context).size.height / 13,
-                                    function: () {
-                                      if (formKey.currentState!.validate()) {
-                                        if (passwordController.text ==
-                                            confPasswordController.text) {
-                                          cubit.get(context).signUp(
-                                            date: "${DateFormat.yMMMd().format(DateTime.now())} ${TimeOfDay.now().format(context).toString()}",
-                                              email: emailController.text,
-                                              password: passwordController.text,
-                                              name: nameController.text,
-                                              phone: phoneController.text);
-                                        } else {
-                                          Fluttertoast.showToast(
-                                              msg: "Passwords aren't the same",
-                                              backgroundColor: Colors.red);
-                                        }
-                                      }
-                                    }),
-                              ),
-                              fallback: (context) =>
-                                  const Center(child: CircularProgressIndicator()))
+                                    color: backgroundColor,
+                                    child: button(
+                                        context: context,
+                                        text: "Create account",
+                                        color: Colors.transparent,
+                                        minWidth:
+                                            MediaQuery.of(context).size.width /
+                                                2,
+                                        height:
+                                            MediaQuery.of(context).size.height /
+                                                13,
+                                        function: () {
+                                          if (formKey.currentState!
+                                              .validate()) {
+                                            if (passwordController.text ==
+                                                confPasswordController.text) {
+                                              cubit.get(context).signUp(
+                                                  date:
+                                                      "${DateFormat.yMMMd().format(DateTime.now())} ${TimeOfDay.now().format(context).toString()}",
+                                                  email: emailController.text,
+                                                  password:
+                                                      passwordController.text,
+                                                  name: nameController.text,
+                                                  phone: phoneController.text);
+                                            } else {
+                                              Fluttertoast.showToast(
+                                                  msg:
+                                                      "Passwords aren't the same",
+                                                  backgroundColor: Colors.red);
+                                            }
+                                          }
+                                        }),
+                                  ),
+                              fallback: (context) => const Center(
+                                  child: CircularProgressIndicator()))
                         ],
                       ),
                     ),
@@ -174,22 +179,34 @@ class _AddUserState extends State<AddUser> {
     }, listener: (context, state) {
       if (state is SuccessfullySignUpState) {
         Fluttertoast.showToast(
-            msg: "Create account successfully",
-            backgroundColor: Colors.green);
-        nameController.clear() ;
-        emailController.clear() ;
-        passwordController.clear() ;
-        confPasswordController.clear() ;
-        phoneController.clear() ;
-        isPassword = true ;
-        isConfPassword = true ;
-      }else if(state is ErrorSignUpState)
-        {
+            msg: "Create account successfully", backgroundColor: Colors.green);
+        nameController.clear();
+        emailController.clear();
+        passwordController.clear();
+        confPasswordController.clear();
+        phoneController.clear();
+        isPassword = true;
+        isConfPassword = true;
+      } else if (state is ErrorSignUpState) {
+        if (state.error
+            .toString()
+            .contains("The email address is badly formatted")) {
           Fluttertoast.showToast(
-              msg: state.error.toString(),
+              msg: "The email address is badly formatted",
+              backgroundColor: Colors.red);
+        } else if (state.error.toString().contains(
+            "The email address is already in use by another account")) {
+          Fluttertoast.showToast(
+              msg: "The email address is already in use by another account",
+              backgroundColor: Colors.red);
+        } else if (state.error
+            .toString()
+            .contains("Password should be at least 6 characters")) {
+          Fluttertoast.showToast(
+              msg: "Password should be at least 6 characters",
               backgroundColor: Colors.red);
         }
-
+      }
     });
   }
 }
