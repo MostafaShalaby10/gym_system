@@ -38,7 +38,6 @@ class cubit extends Cubit<States> {
   ExerciseModel? exerciseModel;
   Map<String, dynamic> dataMap = {};
 
-
   void signUp(
       {required String email,
       required String password,
@@ -149,7 +148,7 @@ class cubit extends Cubit<States> {
     });
   }
 
-  void enterUserData() async{
+  void enterUserData() async {
     dataModel = DataModel(map: dataMap);
     emit(LoadingEnterUserDataState());
     FirebaseFirestore.instance
@@ -169,10 +168,10 @@ class cubit extends Cubit<States> {
     });
   }
 
-  Future getUserData({required String id})async {
+  Future getUserData({required String id}) async {
     userData = {};
     emit(LoadingGetUserDataState());
-  await   FirebaseFirestore.instance
+    await FirebaseFirestore.instance
         .collection("Users")
         .doc(id)
         .collection("data")
@@ -180,8 +179,7 @@ class cubit extends Cubit<States> {
         .get()
         .then((value) {
       userData = value.data()!;
-      print("---------------------------------------------------------------------------");
-      print(userData["map"]["Gender"]);
+
       emit(SuccessfullyGetUserDataState());
     }).catchError((error) {
       if (kDebugMode) {
@@ -238,8 +236,8 @@ class cubit extends Cubit<States> {
         .doc(id)
         .collection("Exercise")
         .get()
-        .then((value)async {
-      for (var element in value.docs)  {
+        .then((value) async {
+      for (var element in value.docs) {
         exercise.add(ExerciseModel.fromjson(element.data()));
       }
 
@@ -540,8 +538,8 @@ class cubit extends Cubit<States> {
     });
   }
 
+  FoodReplacementModel? foodReplacementModel;
 
-FoodReplacementModel? foodReplacementModel ;
   void createFoodReplacement({required String food1, required String food2}) {
     foodReplacementModel = FoodReplacementModel(food1: food1, food2: food2);
     emit(LoadingCreateFoodReplacement());
@@ -555,11 +553,16 @@ FoodReplacementModel? foodReplacementModel ;
       emit(ErrorCreateFoodReplacement(error.toString()));
     });
   }
-List<dynamic> foodReplacements = [];
+
+  List<dynamic> foodReplacements = [];
+
   void getFoodReplacement() {
     foodReplacements = [];
     emit(LoadingGetFoodReplacement());
-    FirebaseFirestore.instance.collection("Food Replacement").get().then((value) {
+    FirebaseFirestore.instance
+        .collection("Food Replacement")
+        .get()
+        .then((value) {
       for (var element in value.docs) {
         foodReplacements.add(FoodReplacementModel.fromjson(element.data()));
       }
@@ -570,16 +573,14 @@ List<dynamic> foodReplacements = [];
     });
   }
 
-
-  void addFavoriteFood({required String item})
-  {
-    favoriteFoods.add(item) ;
+  void addFavoriteFood({required String item}) {
+    favoriteFoods.add(item);
     emit(AddItemState());
   }
 
-  void removeFavoriteFood({required String item})
-  {
-    favoriteFoods.remove(item) ;
+  void removeFavoriteFood({required String item}) {
+    favoriteFoods.remove(item);
     emit(RemoveItemState());
   }
+
 }

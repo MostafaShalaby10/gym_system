@@ -6,19 +6,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gym_system/components/components.dart';
+import 'package:gym_system/components/notification.dart';
 import 'package:gym_system/cubit/cubit.dart';
 import 'package:gym_system/cubit/states.dart';
 import 'package:gym_system/pages/admin/adminHomePage.dart';
 import 'package:gym_system/pages/authentication/login.dart';
 import 'package:gym_system/pages/user/homePage.dart';
-
+import 'firebase_options.dart';
 import 'sharedPrefrences/sharedPrefrences.dart';
 
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.black, statusBarIconBrightness: Brightness.light));
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await FirebaseNotification().initNotification();
   await SharedPrefs.init();
   
   if (SharedPrefs.getData(key: "admin") == null) {
