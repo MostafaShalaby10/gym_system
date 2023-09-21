@@ -8,6 +8,7 @@ import 'package:gym_system/components/components.dart';
 import 'package:gym_system/components/constants.dart';
 import 'package:gym_system/cubit/cubit.dart';
 import 'package:gym_system/cubit/states.dart';
+import 'package:gym_system/sharedPrefrences/sharedPrefrences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Supplements extends StatelessWidget {
@@ -26,7 +27,7 @@ class Supplements extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    backgroundImage(context, image: "lib/assets/images/gemy4.jpg") ,
+                    backgroundImage(context, image:SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy4.jpg":"lib/assets/images/f7.jpg") ,
 
                     ConditionalBuilder(
                         condition: state is! LoadingGetSupplementState,

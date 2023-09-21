@@ -47,7 +47,8 @@ class _FormFourState extends State<FormFour> {
             child: Stack(
               alignment: Alignment.center,
               children: [
-                backgroundImage(context, image: "lib/assets/images/gemy9.jpg"),
+                backgroundImage(context,
+                image: SharedPrefs.getData(key: "Gender")=="Female"?"lib/assets/images/f2.jpg":"lib/assets/images/gemy9.jpg"),
 
                 SingleChildScrollView(
                   child: Padding(

@@ -8,6 +8,7 @@ import 'package:gym_system/components/components.dart';
 import 'package:gym_system/components/constants.dart';
 import 'package:gym_system/cubit/cubit.dart';
 import 'package:gym_system/cubit/states.dart';
+import 'package:gym_system/sharedPrefrences/sharedPrefrences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class FoodReplacement extends StatelessWidget {
@@ -26,7 +27,7 @@ class FoodReplacement extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     backgroundImage(context,
-                        image: "lib/assets/images/gemy8.jpg"),
+                        image:SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy8.jpg":"lib/assets/images/f5.jpg"),
                     ConditionalBuilder(
                         condition: state is! LoadingGetFoodReplacement,
                         builder: (context) => cubit

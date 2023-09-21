@@ -26,6 +26,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 class cubit extends Cubit<States> {
   cubit() : super(InitialState());
 
+  String ksa = "dsaojads";
+
+
   static cubit get(context) => BlocProvider.of(context);
   List<dynamic> exercise = [];
   List<dynamic> food = [];
@@ -179,7 +182,7 @@ class cubit extends Cubit<States> {
         .get()
         .then((value) {
       userData = value.data()!;
-
+          SharedPrefs.saveData(key: "Gender", value: userData["map"]["Gender"]);
       emit(SuccessfullyGetUserDataState());
     }).catchError((error) {
       if (kDebugMode) {

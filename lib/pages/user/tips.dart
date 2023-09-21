@@ -6,6 +6,7 @@ import 'package:gym_system/components/components.dart';
 import 'package:gym_system/components/constants.dart';
 import 'package:gym_system/cubit/cubit.dart';
 import 'package:gym_system/cubit/states.dart';
+import 'package:gym_system/sharedPrefrences/sharedPrefrences.dart';
 class Tips extends StatelessWidget {
   const Tips({Key? key}) : super(key: key);
 
@@ -22,7 +23,7 @@ class Tips extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     backgroundImage(context,
-                        image: "lib/assets/images/gemy2.jpg"),
+                        image:SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy2.jpg":"lib/assets/images/f6.jpg"),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(

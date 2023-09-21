@@ -29,7 +29,7 @@ class Exercise extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     backgroundImage(context,
-                        image: "lib/assets/images/gemy7.jpg"),
+                        image: SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy7.jpg" : "lib/assets/images/f3.jpg"),
                     ConditionalBuilder(
                         condition: state is! LoadingGetExerciseState,
                         builder: (context) => cubit

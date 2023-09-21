@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     backgroundImage(context,
-                        image: "lib/assets/images/gemy.jpg"),
+                        image:SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy.jpg":"lib/assets/images/f1.jpg"),
                     Row(
                       children: [
                         Align(
@@ -78,7 +78,8 @@ class HomePage extends StatelessWidget {
                                     IconButton(
                                       onPressed: () {
                                         launch(
-                                            "https://wa.me/${201093080663}/?text=${Uri.parse("")}");
+                                            SharedPrefs.getData(key: "Gender")=="Male"?
+                                            "https://wa.me/${201093080663}/?text=${Uri.parse("")}": "https://wa.me/${201099759895}/?text=${Uri.parse("")}");
                                       },
                                       icon: const Icon(
                                         FontAwesomeIcons.whatsapp,

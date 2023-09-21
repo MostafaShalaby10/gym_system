@@ -7,6 +7,7 @@ import 'package:gym_system/cubit/states.dart';
 import 'package:gym_system/pages/user/cookingMeasurment.dart';
 import 'package:gym_system/pages/user/food.dart';
 import 'package:gym_system/pages/user/videos.dart';
+import 'package:gym_system/sharedPrefrences/sharedPrefrences.dart';
 
 class FoodDays extends StatelessWidget {
   const FoodDays({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class FoodDays extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    backgroundImage(context, image: "lib/assets/images/gemy5.jpg") ,
+                    backgroundImage(context, image: SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy5.jpg":"lib/assets/images/f5.jpg") ,
 
                     Column(
                       children: [

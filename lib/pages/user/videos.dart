@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gym_system/components/components.dart';
 import 'package:gym_system/cubit/cubit.dart';
 import 'package:gym_system/cubit/states.dart';
+import 'package:gym_system/sharedPrefrences/sharedPrefrences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Videos extends StatelessWidget {
@@ -25,7 +25,7 @@ class Videos extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     backgroundImage(context,
-                        image: "lib/assets/images/gemy3.jpg"),
+                        image:SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy3.jpg":"lib/assets/images/f2.jpg"),
                     ConditionalBuilder(
                         condition: state is! LoadingGetVideoLink,
                         builder: (context) => cubit

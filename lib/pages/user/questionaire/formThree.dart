@@ -7,6 +7,7 @@ import 'package:gym_system/components/components.dart';
 import 'package:gym_system/cubit/cubit.dart';
 import 'package:gym_system/cubit/states.dart';
 import 'package:gym_system/pages/user/questionaire/formFour.dart';
+import 'package:gym_system/sharedPrefrences/sharedPrefrences.dart';
 
 class FormThree extends StatelessWidget {
   FormThree({Key? key}) : super(key: key);
@@ -26,7 +27,8 @@ class FormThree extends StatelessWidget {
             child: Stack(
               alignment: Alignment.center,
               children: [
-                backgroundImage(context, image: "lib/assets/images/gemy9.jpg"),
+                backgroundImage(context,
+                    image: SharedPrefs.getData(key: "Gender")=="Female"?"lib/assets/images/f2.jpg":"lib/assets/images/gemy9.jpg"),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Form(

@@ -6,6 +6,8 @@ import 'package:gym_system/components/components.dart';
 import 'package:gym_system/components/constants.dart';
 import 'package:gym_system/cubit/cubit.dart';
 import 'package:gym_system/cubit/states.dart';
+
+import '../../sharedPrefrences/sharedPrefrences.dart';
 class CookingMeasurement extends StatelessWidget {
   const CookingMeasurement({Key? key}) : super(key: key);
 
@@ -22,7 +24,7 @@ class CookingMeasurement extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     backgroundImage(context,
-                        image: "lib/assets/images/gemy3.jpg"),
+                        image: SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy3.jpg":"lib/assets/images/f3.jpg"),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
