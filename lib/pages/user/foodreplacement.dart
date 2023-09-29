@@ -1,15 +1,12 @@
-import 'dart:math';
 
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gym_system/components/components.dart';
 import 'package:gym_system/components/constants.dart';
 import 'package:gym_system/cubit/cubit.dart';
 import 'package:gym_system/cubit/states.dart';
 import 'package:gym_system/sharedPrefrences/sharedPrefrences.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class FoodReplacement extends StatelessWidget {
   const FoodReplacement({Key? key}) : super(key: key);
@@ -27,7 +24,7 @@ class FoodReplacement extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     backgroundImage(context,
-                        image:SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy8.jpg":"lib/assets/images/f5.jpg"),
+                        image:SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy8.jpg":"lib/assets/images/f1.jpg"),
                     ConditionalBuilder(
                         condition: state is! LoadingGetFoodReplacement,
                         builder: (context) => cubit

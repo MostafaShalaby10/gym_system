@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,7 +23,7 @@ class CookingMeasurement extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     backgroundImage(context,
-                        image: SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy3.jpg":"lib/assets/images/f3.jpg"),
+                        image: SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy3.jpg":"lib/assets/images/f1.jpg"),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(

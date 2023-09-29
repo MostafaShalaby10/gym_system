@@ -24,7 +24,7 @@ class FoodDays extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    backgroundImage(context, image: SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy5.jpg":"lib/assets/images/f5.jpg") ,
+                    backgroundImage(context, image: SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy5.jpg":"lib/assets/images/f1.jpg") ,
 
                     Column(
                       children: [

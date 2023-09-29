@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +28,7 @@ class Exercise extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     backgroundImage(context,
-                        image: SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy7.jpg" : "lib/assets/images/f3.jpg"),
+                        image: SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy7.jpg" : "lib/assets/images/f1.jpg"),
                     ConditionalBuilder(
                         condition: state is! LoadingGetExerciseState,
                         builder: (context) => cubit

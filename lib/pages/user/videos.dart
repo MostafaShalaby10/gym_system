@@ -25,7 +25,7 @@ class Videos extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     backgroundImage(context,
-                        image:SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy3.jpg":"lib/assets/images/f2.jpg"),
+                        image:SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy3.jpg":"lib/assets/images/f1.jpg"),
                     ConditionalBuilder(
                         condition: state is! LoadingGetVideoLink,
                         builder: (context) => cubit

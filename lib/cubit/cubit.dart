@@ -2,11 +2,9 @@
 
 import 'dart:io';
 
-import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gym_system/components/constants.dart';
@@ -21,12 +19,10 @@ import 'package:gym_system/models/videosmodel.dart';
 import 'package:gym_system/sharedPrefrences/sharedPrefrences.dart';
 
 import 'package:image_picker/image_picker.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class cubit extends Cubit<States> {
   cubit() : super(InitialState());
 
-  String ksa = "dsaojads";
 
 
   static cubit get(context) => BlocProvider.of(context);

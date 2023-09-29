@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gym_system/components/components.dart';
@@ -23,7 +21,7 @@ class Tips extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     backgroundImage(context,
-                        image:SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy2.jpg":"lib/assets/images/f6.jpg"),
+                        image:SharedPrefs.getData(key: "Gender")=="Male"? "lib/assets/images/gemy2.jpg":"lib/assets/images/f1.jpg"),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(

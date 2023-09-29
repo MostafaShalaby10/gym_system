@@ -1,15 +1,12 @@
-import 'dart:math';
 
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gym_system/components/components.dart';
 import 'package:gym_system/components/constants.dart';
 import 'package:gym_system/cubit/cubit.dart';
 import 'package:gym_system/cubit/states.dart';
 import 'package:gym_system/sharedPrefrences/sharedPrefrences.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class Food extends StatelessWidget {
   final int dayIndex ;
@@ -28,7 +25,7 @@ class Food extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    backgroundImage(context, image:  SharedPrefs.getData(key: "Gender")=="Male"?"lib/assets/images/gemy6.jpg" : "lib/assets/images/f4.jpg") ,
+                    backgroundImage(context, image:  SharedPrefs.getData(key: "Gender")=="Male"?"lib/assets/images/gemy6.jpg" : "lib/assets/images/f1.jpg") ,
 
                     ConditionalBuilder(
                         condition: state is! LoadingGetExerciseState,

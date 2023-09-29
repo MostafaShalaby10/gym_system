@@ -7,7 +7,6 @@ import 'package:gym_system/cubit/cubit.dart';
 import 'package:gym_system/cubit/states.dart';
 import 'package:gym_system/pages/admin/navigate.dart';
 
-import '../../components/components.dart';
 
 class AllUsers extends StatelessWidget {
   const AllUsers({Key? key}) : super(key: key);

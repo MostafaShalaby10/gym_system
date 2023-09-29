@@ -1,5 +1,4 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -16,7 +15,6 @@ import 'package:gym_system/pages/user/tips.dart';
 import 'package:gym_system/sharedPrefrences/sharedPrefrences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'cookingMeasurment.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -47,6 +45,7 @@ class HomePage extends StatelessWidget {
                             onSelected: (value) {
                               if (value == 0) {
                                 SharedPrefs.removeData(key: "user");
+                                SharedPrefs.removeData(key: "Gender");
 
                                 Navigator.pushAndRemoveUntil(
                                     context,
@@ -79,7 +78,7 @@ class HomePage extends StatelessWidget {
                                       onPressed: () {
                                         launch(
                                             SharedPrefs.getData(key: "Gender")=="Male"?
-                                            "https://wa.me/${201093080663}/?text=${Uri.parse("")}": "https://wa.me/${201099759895}/?text=${Uri.parse("")}");
+                                            "https://wa.me/${201093080663}/?text=${Uri.parse("")}": "https://wa.me/${201062808457}/?text=${Uri.parse("")}");
                                       },
                                       icon: const Icon(
                                         FontAwesomeIcons.whatsapp,
@@ -89,7 +88,8 @@ class HomePage extends StatelessWidget {
                                     IconButton(
                                       onPressed: () {
                                         launch(
-                                            "https://www.instagram.com/mostafa.gamal32/",
+                                            SharedPrefs.getData(key: "Gender")=="Male"?
+                                            "https://www.instagram.com/mostafa.gamal32/":"https://www.instagram.com/_mostafa_shalaby/",
                                             universalLinksOnly: true);
                                       },
                                       icon: const Icon(

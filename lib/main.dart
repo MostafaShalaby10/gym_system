@@ -1,11 +1,9 @@
 // ignore_for_file: unnecessary_null_comparison
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gym_system/components/components.dart';
 import 'package:gym_system/components/notification.dart';
 import 'package:gym_system/cubit/cubit.dart';
 import 'package:gym_system/cubit/states.dart';

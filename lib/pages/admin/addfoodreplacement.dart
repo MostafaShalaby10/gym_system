@@ -5,8 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gym_system/components/components.dart';
 import 'package:gym_system/cubit/cubit.dart';
 import 'package:gym_system/cubit/states.dart';
-import 'package:gym_system/pages/authentication/login.dart';
-import 'package:gym_system/sharedPrefrences/sharedPrefrences.dart';
+
 
 class AddFoodReplacement extends StatelessWidget {
 

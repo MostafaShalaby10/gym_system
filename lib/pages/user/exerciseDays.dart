@@ -6,9 +6,6 @@ import 'package:gym_system/cubit/cubit.dart';
 import 'package:gym_system/cubit/states.dart';
 import 'package:gym_system/pages/user/Exercise.dart';
 import 'package:gym_system/sharedPrefrences/sharedPrefrences.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-import '../../components/components.dart';
 
 class ExerciseDays extends StatelessWidget {
   const ExerciseDays({Key? key}) : super(key: key);
@@ -26,7 +23,7 @@ class ExerciseDays extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     backgroundImage(context,
-                        image: SharedPrefs.getData(key: "Gender")=="Male"?"lib/assets/images/gemy5.jpg" : "lib/assets/images/f2.jpg"),
+                        image: SharedPrefs.getData(key: "Gender")=="Male"?"lib/assets/images/gemy5.jpg" : "lib/assets/images/f1.jpg"),
                     Column(
                       children: [
                         Expanded(
