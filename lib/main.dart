@@ -1,9 +1,13 @@
 // ignore_for_file: unnecessary_null_comparison
 
+
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gym_system/components/notification.dart';
 import 'package:gym_system/cubit/cubit.dart';
 import 'package:gym_system/cubit/states.dart';
@@ -22,22 +26,27 @@ void main() async {
   );
   await FirebaseNotification().initNotification();
   await SharedPrefs.init();
-  
+
   if (SharedPrefs.getData(key: "admin") == null) {
     if (SharedPrefs.getData(key: "user") == null) {
-      runApp(const MyApp(
-        start: Login(),
-      ));
+      runApp(
+          DevicePreview(enabled: !kReleaseMode, builder: (context) =>
+          const MyApp(
+            start: Login(),
+          ))) ;
     } else {
-        runApp(const MyApp(
-          start: HomePage(),
-        ));
-
+      runApp(
+          DevicePreview(enabled: !kReleaseMode, builder: (context) =>
+          const MyApp(
+            start: HomePage(),
+          ))) ;
     }
   } else {
-    runApp(const MyApp(
-      start: AdminHomePage(),
-    ));
+    runApp(
+        DevicePreview(enabled: !kReleaseMode, builder: (context) =>
+        const MyApp(
+          start: AdminHomePage(),
+        ))) ;
   }
 }
 
@@ -49,7 +58,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return BlocProvider(
       create: (BuildContext context) => cubit(),
       child: BlocConsumer<cubit, States>(
@@ -58,16 +66,16 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               title: 'Gemy',
               theme: ThemeData(
-                textTheme: const TextTheme(
-                  bodyMedium: TextStyle(
-                    fontFamily: "Inter",
-                    color: Colors.white,
-                    fontWeight: FontWeight.w900,
-                    fontSize: 15
-                  )
-                ),
+                  textTheme:  const TextTheme(
+                      bodyMedium: TextStyle(
+                          fontFamily: "Inter",
+                          color: Colors.white,
+                          fontWeight: FontWeight.w900,
+                          fontSize: 15
+                      )
+                  ),
 
-                primaryColor: Colors.white,
+                  primaryColor: Colors.white,
                   inputDecorationTheme: InputDecorationTheme(
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(0),

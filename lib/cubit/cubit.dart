@@ -38,7 +38,8 @@ class cubit extends Cubit<States> {
   Map<String, dynamic> dataMap = {};
 
   void signUp(
-      {required String email,
+      {
+      required String email,
       required String password,
       required String name,
       required String date,
